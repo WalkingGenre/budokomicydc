@@ -563,14 +563,17 @@ footer .brand-mark {
     display: none;
   }
   
+  /* FORCE BUTTON TRIGGER TO REGISTER TAP FEEDBACK VIA WEBKIT ENGINES */
   .menu-toggle {
     display: grid !important;
     place-items: center;
-    cursor: pointer;
+    cursor: pointer !important;
     user-select: none;
     -webkit-user-select: none;
+    touch-action: manipulation; /* Optimizes for instant response to finger taps */
   }
 
+  /* Dropdown positioning logic */
   .nav-links {
     display: flex;
     flex-direction: column;
@@ -584,7 +587,7 @@ footer .brand-mark {
     gap: 0;
     z-index: 99;
     
-    /* Sliding and animation mechanics */
+    /* Sliding dropdown animation values */
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -600,8 +603,9 @@ footer .brand-mark {
     border-bottom: 1px solid #eadfe140;
   }
 
-  /* DROPDOWN TARGET CHANGED TO A STANDARD JAVASCRIPT ACTIVE CLASS LAYER */
-  .nav-links.open {
+  /* PURE CSS HACK KEY SELECTOR CONNECTOR */
+  /* When the hidden check box is checked, target the following nav links container */
+  .menu-checkbox:checked ~ .nav-links {
     max-height: 480px !important; 
     opacity: 1 !important;
     visibility: visible !important;

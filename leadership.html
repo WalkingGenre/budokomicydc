@@ -3,13 +3,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Leadership Team | Budokomi Child and Youth development Center">
+    <meta name="description" content="Leadership | Budokomi Child and Youth development Center">
     <meta name="theme-color" content="#fff8f8">
     
     <title>Leadership | Budokomi CYDC</title>
     
     <link rel="icon" href="Img/logo%20compassion.jpg">
     <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        /* Pure CSS Checkbox Hack for Mobile Menu Dropdown Interaction */
+        .menu-checkbox {
+            display: none;
+        }
+        
+        label.menu-toggle {
+            user-select: none;
+        }
+
+        @media (max-width: 760px) {
+            .menu-checkbox:checked ~ .nav-links {
+                display: grid !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="topbar">
@@ -29,13 +45,10 @@
                 </span>
             </a>
 
-            <!-- 1. Pure CSS invisible controller setup -->
-            <input type="checkbox" id="menu-check" class="menu-checkbox">
+            <!-- Structural CSS Switch Hooks -->
+            <input type="checkbox" id="menuToggleCheck" class="menu-checkbox" aria-hidden="true">
+            <label for="menuToggleCheck" class="menu-toggle" aria-label="Open navigation menu">☰</label>
 
-            <!-- 2. Responsive Trigger Button (Linked via the "for" property) -->
-            <label for="menu-check" class="menu-toggle" aria-label="Open navigation menu">☰</label>
-
-            <!-- 3. Navigation link sheet layout -->
             <nav class="nav-links" id="navLinks" aria-label="Main navigation">
                 <a href="index.html" data-page="home">Home</a>
                 <a href="about.html" data-page="about">About Us</a>
@@ -52,12 +65,13 @@
     <main>
         <section class="page-hero">
             <div class="container">
-                <div class="crumb">Home / Leadership</div>
+                <div class="crumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Leadership</div>
                 <h1>Our Leadership Team</h1>
                 <p class="lead">Meet the dedicated church pastors, project staff, and our student beneficiary leaders who manage and guide the vision of ACK Budokomi CYDC.</p>
             </div>
         </section>
 
+        <!-- SECTION 1: CENTER ADMINISTRATION -->
         <section class="section">
             <div class="container">
                 <div class="head">
@@ -67,30 +81,31 @@
                 </div>
                 
                 <div class="values-grid">
-                    <article class="card">
-                        <div class="icon">⛪</div>
+                    <article class="card team">
+                        <div class="avatar">⛪</div>
                         <h3>Project Director</h3>
-                        <p><strong>Administration Head</strong></p>
+                        <p class="role" style="font-weight:700; color:var(--blue); margin-top:4px;">Administration Head</p>
                         <p>Manages operations, external partnerships, alignment targets, and overall center accountability metrics.</p>
                     </article>
                     
-                    <article class="card">
-                        <div class="icon">✍</div>
+                    <article class="card team">
+                        <div class="avatar">✍</div>
                         <h3>Social Worker</h3>
-                        <p><strong>Child Development Specialist</strong></p>
+                        <p class="role" style="font-weight:700; color:var(--blue); margin-top:4px;">Child Development Specialist</p>
                         <p>Tracks child curriculum tracking files, coordinates home visitations, and shields child protection compliance.</p>
                     </article>
 
-                    <article class="card">
-                        <div class="icon">📊</div>
+                    <article class="card team">
+                        <div class="avatar">📊</div>
                         <h3>Health & Accountant Specialist</h3>
-                        <p><strong>Financial & Medical Tracking</strong></p>
+                        <p class="role" style="font-weight:700; color:var(--blue); margin-top:4px;">Financial & Medical Tracking</p>
                         <p>Manages project fund accounts alongside health checkups, nutritional plans, and medical files.</p>
                     </article>
                 </div>
             </div>
         </section>
 
+        <!-- SECTION 2: BENEFICIARY EXECUTIVE LEADERS -->
         <section class="section band">
             <div class="container">
                 <div class="head">
@@ -100,30 +115,31 @@
                 </div>
                 
                 <div class="values-grid">
-                    <article class="card">
-                        <div class="icon">👑</div>
+                    <article class="card team">
+                        <div class="avatar">👑</div>
                         <h3>Center Governor</h3>
-                        <p><strong>Overall Beneficiary Leader</strong></p>
+                        <p class="role" style="font-weight:700; color:var(--blue); margin-top:4px;">Overall Beneficiary Leader</p>
                         <p>Serves as the chief student representative, presides over youth assemblies, and voices feedback directly to the Project Director.</p>
                     </article>
                     
-                    <article class="card">
-                        <div class="icon">🛡</div>
+                    <article class="card team">
+                        <div class="avatar">🛡️</div>
                         <h3>Deputy Center Governor</h3>
-                        <p><strong>Overall Beneficiary Leader</strong></p>
+                        <p class="role" style="font-weight:700; color:var(--blue); margin-top:4px;">Overall Beneficiary Leader</p>
                         <p>Coordinates internal welfare check-ins, tracks council assignment timelines, and oversees student body discipline systems.</p>
                     </article>
 
-                    <article class="card">
-                        <div class="icon">📜</div>
+                    <article class="card team">
+                        <div class="avatar">📜</div>
                         <h3>Council Secretary</h3>
-                        <p><strong>Executive Administration</strong></p>
+                        <p class="role" style="font-weight:700; color:var(--blue); margin-top:4px;">Executive Administration</p>
                         <p>Manages documentation for student leadership forums, coordinates communications, and archives student-led event logs.</p>
                     </article>
                 </div>
             </div>
         </section>
 
+        <!-- SECTION 3: DEPARTMENTAL STUDENT LEADERS -->
         <section class="section">
             <div class="container">
                 <div class="head">
@@ -132,32 +148,32 @@
                     <p>To deepen specialization skills, our leadership framework delegates active authority to student captains across specific project blocks.</p>
                 </div>
                 
-                <div class="cards">
-                    <article class="card">
-                        <div class="icon">🎓</div>
+                <div class="values-grid">
+                    <article class="card team">
+                        <div class="avatar">🎓</div>
                         <h3>Academic Prefect</h3>
-                        <p><strong>Departmental Head</strong></p>
+                        <p class="role" style="font-weight:700; color:var(--blue); margin-top:4px;">Departmental Head</p>
                         <p>Coordinates peer tutoring circles, tracks center library resource logs, and assists younger youth with study habits.</p>
                     </article>
-                    
-                    <article class="card">
-                        <div class="icon">🎵</div>
+
+                    <article class="card team">
+                        <div class="avatar">🎵</div>
                         <h3>Music Captain</h3>
-                        <p><strong>Departmental Head</strong></p>
+                        <p class="role" style="font-weight:700; color:var(--blue); margin-top:4px;">Departmental Head</p>
                         <p>Oversites instrument maintenance, coordinates choir and brass band practice routines, and mentors youth in musical theory.</p>
                     </article>
-
-                    <article class="card">
-                        <div class="icon">📖</div>
+                    
+                    <article class="card team">
+                        <div class="avatar">📖</div>
                         <h3>Spiritual & Life Skills Prefect</h3>
-                        <p><strong>Departmental Head</strong></p>
+                        <p class="role" style="font-weight:700; color:var(--blue); margin-top:4px;">Departmental Head</p>
                         <p>Leads weekly scriptural discipleship study circles and acts as a peer counselor for life skills training forums.</p>
                     </article>
-                
-                    <article class="card">
-                        <div class="icon">⚽</div>
+
+                    <article class="card team">
+                        <div class="avatar">⚽</div>
                         <h3>Sports & Games Captain</h3>
-                        <p><strong>Departmental Head</strong></p>
+                        <p class="role" style="font-weight:700; color:var(--blue); margin-top:4px;">Departmental Head</p>
                         <p>Manages sports gear logs, coordinates friendly match events, and models sportsmanship values on the pitch.</p>
                     </article>
                 </div>
@@ -180,25 +196,30 @@
                     </div>
                     <p>Releasing children and youth from poverty in Jesus' name through holistic care and spiritual mentorship.</p>
                 </div>
+                
                 <div>
                     <h3>Explore</h3>
                     <div class="footer-links">
-                        <a href="index.html">Home</a>
                         <a href="about.html">About Us</a>
                         <a href="programs.html">Programs & Activities</a>
-                        <a href="leadership.html">Leadership</a>
+                        <a href="leadership.html" class="active">Leadership</a>
+                        <a href="gallery.html">Gallery</a>
                     </div>
                 </div>
+                
                 <div>
-                    <h3>Contact</h3>
+                    <h3>Take Part</h3>
                     <div class="footer-links">
-                        <a href="contact.html">Support Desk</a>
+                        <a href="get-involved.html">Volunteer</a>
+                        <a href="get-involved.html">Partnerships</a>
+                        <a href="contact.html">Contact</a>
                     </div>
                 </div>
             </div>
+            
             <div class="bottom">
                 <span>&copy; 2026 Budokomi CYDC. All rights reserved.</span>
-                <span>Partnered with Compassion Kenya</span>
+                <span>Releasing children from poverty.</span>
             </div>
         </div>
     </footer>
