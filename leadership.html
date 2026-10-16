@@ -10,22 +10,6 @@
     
     <link rel="icon" href="Img/logo%20compassion.jpg">
     <link rel="stylesheet" href="assets/styles.css">
-    <style>
-        /* Pure CSS Checkbox Hack for Mobile Menu Dropdown Interaction */
-        .menu-checkbox {
-            display: none;
-        }
-        
-        label.menu-toggle {
-            user-select: none;
-        }
-
-        @media (max-width: 760px) {
-            .menu-checkbox:checked ~ .nav-links {
-                display: grid !important;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="topbar">
@@ -45,8 +29,10 @@
                 </span>
             </a>
 
-            <!-- Structural CSS Switch Hooks -->
-            <input type="checkbox" id="menuToggleCheck" class="menu-checkbox" aria-hidden="true">
+            <!-- Pure CSS Checkbox Hack Input (Must be direct sibling before nav links to match your style.css) -->
+            <input type="checkbox" id="menuToggleCheck" class="menu-checkbox" aria-hidden="true" style="display: none;">
+            
+            <!-- Styled Label serving as the clickable Hamburger Icon targeting the Checkbox Hook -->
             <label for="menuToggleCheck" class="menu-toggle" aria-label="Open navigation menu">☰</label>
 
             <nav class="nav-links" id="navLinks" aria-label="Main navigation">
@@ -56,7 +42,7 @@
                 <a href="leadership.html" data-page="leadership" class="active">Leadership</a>
                 <a href="gallery.html" data-page="gallery">Gallery</a>
                 <a href="get-involved.html" data-page="get-involved">Get Involved</a>
-                <a href="contact.html" data-page="contact">Contact</a>
+                <a href="contact.html">Contact</a>
             </nav>
             <a class="btn primary small nav-cta" href="get-involved.html">Volunteer →</a>
         </div>
