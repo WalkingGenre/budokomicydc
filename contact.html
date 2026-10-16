@@ -38,7 +38,9 @@
                 <a href="contact.html" data-page="contact" class="active">Contact</a>
             </nav>
             <a class="btn primary small nav-cta" href="get-involved.html">Volunteer →</a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+            
+            <!-- BUTTON INTERACTION CONFIGURED FOR RESPONSIVE JS ACTIVE LAYER TOGGLE MECHANICS -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">☰</button>
         </div>
     </header>
 
@@ -88,19 +90,24 @@
                                 <h3 style="margin: 0; color: var(--blue);">📧 Email via Gmail</h3>
                                 <p style="font-size: 0.9rem; margin-top: 4px; color: var(--muted);">Launch a structured email draft directly to our inbox.</p>
                             </div>
-                            <a href="mailto:ke0442budokomicdc@://gmail.com" class="btn primary" style="min-width: 160px;">Open Gmail &rarr;</a>
+                            <!-- FIXED BROKEN MAILTO FORMAT STRING TYPO LINK HERE -->
+                            <a href="mailto:ke0442budokomicdc@gmail.com" class="btn primary" style="min-width: 160px;">Open Gmail &rarr;</a>
                         </div>
 
                         <!-- WHATSAPP DIRECT CHANNEL -->
-                      
-<!-- For your Contact Page Box & Floating Button -->
-<a href="https://wa.me" 
-   class="btn primary" 
-   style="background-color: #25D366; min-width: 160px;"
-   target="_blank" 
-   rel="noopener noreferrer">
-   Chat Now &rarr;
-</a>
+                        <div class="card" style="padding: 20px; display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap;">
+                            <div>
+                                <h3 style="margin: 0; color: #25D366;">💬 WhatsApp Chat</h3>
+                                <p style="font-size: 0.9rem; margin-top: 4px; color: var(--muted);">Connect directly with our desk for swift message tracking.</p>
+                            </div>
+                            <a href="https://wa.me" 
+                               class="btn primary" 
+                               style="background-color: #25D366; min-width: 160px;"
+                               target="_blank" 
+                               rel="noopener noreferrer">
+                               Chat Now &rarr;
+                            </a>
+                        </div>
 
                         <!-- PHONE CALL DIRECT CHANNEL -->
                         <div class="card" style="padding: 20px; display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap;">
@@ -161,6 +168,14 @@
         </div>
     </footer>
 
-  
+    <!-- MOBILE DROPDOWN SCRIPTER INTERACTION BRIDGE -->
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>

@@ -169,6 +169,16 @@
                 <span>Releasing children from poverty.</span>
             </div>
         </div>
+
+         <!-- ADD THIS TINY SCRIPT AT THE VERY BOTTOM RIGHT BEFORE YOUR CLOSING BODY TAG -->
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        </script>
     </footer>
 </body>
 </html>

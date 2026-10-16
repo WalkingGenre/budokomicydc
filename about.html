@@ -38,7 +38,9 @@
                 <a href="contact.html" data-page="contact">Contact</a>
             </nav>
             <a class="btn primary small nav-cta" href="get-involved.html">Volunteer →</a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+            
+            <!-- BUTTON INTERACTION PRESERVED CONTEXTUALLY FOR THE JAVASCRIPT TOGGLE SYSTEM -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">☰</button>
         </div>
     </header>
 
@@ -158,30 +160,30 @@
                 <div>
                     <h3>Explore</h3>
                     <div class="footer-links">
-                        <a href="about.html" class="active">About Us</a>
-                        <a href="programs.html">Programs & Activities</a>
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="programs.html">Programs</a>
                         <a href="leadership.html">Leadership</a>
                         <a href="gallery.html">Gallery</a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3>Take Part</h3>
-                    <div class="footer-links">
-                        <a href="get-involved.html">Volunteer</a>
-                        <a href="get-involved.html">Partnerships</a>
+                        <a href="get-involved.html">Get Involved</a>
                         <a href="contact.html">Contact</a>
                     </div>
                 </div>
             </div>
-            
             <div class="bottom">
                 <span>&copy; 2026 Budokomi CYDC. All rights reserved.</span>
-                <span>Releasing children from poverty.</span>
             </div>
         </div>
-
- 
     </footer>
+
+    <!-- MOBILE DROPDOWN TOGGLE DRIVER CODE PANEL -->
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>

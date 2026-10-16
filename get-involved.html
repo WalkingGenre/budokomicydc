@@ -38,7 +38,9 @@
                 <a href="contact.html" data-page="contact">Contact</a>
             </nav>
             <a class="btn primary small nav-cta" href="get-involved.html">Volunteer →</a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+            
+            <!-- BUTTON INTERACTION CONFIGURED FOR RESPONSIVE JS ACTIVE LAYER TOGGLE MECHANICS -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">☰</button>
         </div>
     </header>
 
@@ -154,5 +156,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- MOBILE DROPDOWN TOGGLE DRIVER CODE PANEL -->
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>

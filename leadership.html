@@ -183,3 +183,12 @@
                         <a href="about.html">About Us</a>
                         <a href="programs.html">Programs & Activities</a>
                         <a href="leadership.html" class="active">Leadership</a>
+                         <!-- ADD THIS TINY SCRIPT AT THE VERY BOTTOM RIGHT BEFORE YOUR CLOSING BODY TAG -->
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        </script>
