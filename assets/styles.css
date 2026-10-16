@@ -73,6 +73,7 @@ header {
   justify-content: space-between;
   gap: 18px;
   min-height: 76px;
+  position: relative; /* Base anchor context for absolute dropdown placement */
 }
 
 .brand {
@@ -445,7 +446,7 @@ input:focus, select:focus, textarea:focus {
 
 .status {
   margin-top: 12px;
-  color: var(--blue-dark);
+  color: var(--dark);
 }
 
 footer {
@@ -527,6 +528,8 @@ footer .brand-mark {
   font-size: 2rem;
 }
 
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
 @media(max-width:1000px) {
   .nav-links {
     gap: 10px;
@@ -559,117 +562,60 @@ footer .brand-mark {
   .topbar span:last-child {
     display: none;
   }
+  
+  /* Activate custom button layout properties on mobile layout context */
   .menu-toggle {
-    display: block;
-  }
-  .nav {
-    min-height: 70px;
-  }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 72px;
-    left: 15px;
-    right: 15px;
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 15px;
-    padding: 12px;
-    box-shadow: 0 15px 40px #12396a20;
-    align-items: stretch;
-    gap: 0;
-  }
-  .nav-links.open {
     display: grid;
+    place-items: center;
+    cursor: pointer;
+    user-select: none;
   }
-  .nav-links a {
-    padding: 10px 8px;
-    border-bottom: 1px solid #f3ebec;
-    font-size: .95rem;
-  }
-  .section {
-    padding: 54px 0;
-  }
-  .hero {
-    padding: 48px 0;
-  }
-  .split, .contact-grid {
-    grid-template-columns: 1fr;
-  }
-  .actions {
+
+  /* Target the nav link block to act as a collapsable absolute dropdown panel */
+  .nav-links {
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
-  .cards {
-    grid-template-columns: 1fr;
-  }
-  .photo {
-    height: 290px;
-  }
-  .gallery {
-    grid-template-columns: 1fr 1fr;
-  }
-  .gallery img {
-    height: 165px;
-  }
-  .cta {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 24px;
-  }
-  .form-grid {
-    grid-template-columns: 1fr;
+    position: absolute;
+    top: 76px; /* Sits right at the base of the header */
+    left: -15px; /* Offset spacing context */
+    width: calc(100% + 30px);
+    background-color: #fff8f8;
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
     gap: 0;
+    z-index: 99;
+    
+    /* Smooth CSS collapse & fade mechanics */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease;
   }
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 14px 25px;
+    font-size: .95rem;
+    border-bottom: 1px solid #eadfe140;
   }
-  .footer-grid > div:first-child {
-    grid-column: 1/-1;
+
+  /* The Sibling Switch Driver: Expand the menu block smoothly when checked */
+  .menu-checkbox:checked ~ .nav-links {
+    max-height: 480px; 
+    opacity: 1;
+    visibility: visible;
   }
-  .bottom {
+
+  /* Stack main sections elements uniformly vertically */
+  .split, .contact-grid, .form-grid, .gallery, .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  .cta {
     flex-direction: column;
-  }
-}
-
-@media (max-width: 600px) {
-  .values-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-}
-.whatsapp-float {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  background-color: #25D366;
-  color: white !important;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  font-size: 28px;
-  transition: all 0.3s ease;
-  text-decoration: none !important;
-}
-
-.whatsapp-float:hover {
-  background-color: #128C7E;
-  transform: scale(1.08);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-}
-
-@media (max-width: 760px) {
-  .whatsapp-float {
-    bottom: 16px;
-    left: 16px;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
+    text-align: center;
   }
 }
