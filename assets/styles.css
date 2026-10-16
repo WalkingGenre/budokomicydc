@@ -73,7 +73,7 @@ header {
   justify-content: space-between;
   gap: 18px;
   min-height: 76px;
-  position: relative; /* Base anchor context for absolute dropdown placement */
+  position: relative; /* Anchor point for positioning absolute mobile menu */
 }
 
 .brand {
@@ -182,7 +182,7 @@ header {
 }
 
 .menu-toggle {
-  display: none;
+  display: none; /* Hidden on desktop screens */
   background: white;
   color: var(--blue);
   border: 1px solid var(--line);
@@ -563,21 +563,22 @@ footer .brand-mark {
     display: none;
   }
   
-  /* Activate custom button layout properties on mobile layout context */
+  /* OVERRIDE THE DEFAULT DESKTOP HIDDEN DISPLAY CONFIGURATION */
   .menu-toggle {
-    display: grid;
+    display: grid !important;
     place-items: center;
     cursor: pointer;
     user-select: none;
+    -webkit-user-select: none;
   }
 
-  /* Target the nav link block to act as a collapsable absolute dropdown panel */
+  /* Absolute position the dropdown on screens below 760px */
   .nav-links {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 76px; /* Sits right at the base of the header */
-    left: -15px; /* Offset spacing context */
+    top: 76px; 
+    left: -15px; 
     width: calc(100% + 30px);
     background-color: #fff8f8;
     border-bottom: 1px solid var(--line);
@@ -585,7 +586,7 @@ footer .brand-mark {
     gap: 0;
     z-index: 99;
     
-    /* Smooth CSS collapse & fade mechanics */
+    /* Sliding and animation mechanics */
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -601,14 +602,14 @@ footer .brand-mark {
     border-bottom: 1px solid #eadfe140;
   }
 
-  /* The Sibling Switch Driver: Expand the menu block smoothly when checked */
+  /* The Sibling Switch Driver: Expands panel when input checkbox state is active */
   .menu-checkbox:checked ~ .nav-links {
     max-height: 480px; 
     opacity: 1;
     visibility: visible;
   }
 
-  /* Stack main sections elements uniformly vertically */
+  /* Mobile standard structural alignments */
   .split, .contact-grid, .form-grid, .gallery, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 24px;
