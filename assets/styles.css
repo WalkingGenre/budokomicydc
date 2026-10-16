@@ -73,7 +73,7 @@ header {
   justify-content: space-between;
   gap: 18px;
   min-height: 76px;
-  position: relative; /* Anchor point for positioning absolute mobile menu */
+  position: relative;
 }
 
 .brand {
@@ -182,7 +182,7 @@ header {
 }
 
 .menu-toggle {
-  display: none; /* Hidden on desktop screens */
+  display: none;
   background: white;
   color: var(--blue);
   border: 1px solid var(--line);
@@ -563,7 +563,6 @@ footer .brand-mark {
     display: none;
   }
   
-  /* OVERRIDE THE DEFAULT DESKTOP HIDDEN DISPLAY CONFIGURATION */
   .menu-toggle {
     display: grid !important;
     place-items: center;
@@ -572,7 +571,6 @@ footer .brand-mark {
     -webkit-user-select: none;
   }
 
-  /* Absolute position the dropdown on screens below 760px */
   .nav-links {
     display: flex;
     flex-direction: column;
@@ -602,14 +600,13 @@ footer .brand-mark {
     border-bottom: 1px solid #eadfe140;
   }
 
-  /* The Sibling Switch Driver: Expands panel when input checkbox state is active */
-  .menu-checkbox:checked ~ .nav-links {
-    max-height: 480px; 
-    opacity: 1;
-    visibility: visible;
+  /* DROPDOWN TARGET CHANGED TO A STANDARD JAVASCRIPT ACTIVE CLASS LAYER */
+  .nav-links.open {
+    max-height: 480px !important; 
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
-  /* Mobile standard structural alignments */
   .split, .contact-grid, .form-grid, .gallery, .footer-grid {
     grid-template-columns: 1fr !important;
     gap: 24px;

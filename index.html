@@ -28,11 +28,8 @@
                     <span class="brand-sub">Empowering for Life</span>
                 </span>
             </a>
-            
-            <!-- 1. THE HIDDEN CHECKBOX TRIGGER (Must be above nav-links) -->
-            <input type="checkbox" id="menu-toggle" class="menu-checkbox" style="display: none;">
 
-            <!-- 2. NAVIGATION LINKS CONTAINER -->
+            <!-- NAVIGATION LINKS CONTAINER -->
             <nav class="nav-links" id="navLinks" aria-label="Main navigation">
                 <a href="index.html" data-page="home" class="active">Home</a>
                 <a href="about.html" data-page="about">About Us</a>
@@ -45,8 +42,8 @@
 
             <a class="btn primary small nav-cta" href="get-involved.html">Volunteer →</a>
 
-            <!-- 3. UPDATED TO A LABEL TO TRIGGER THE HIDDEN CHECKBOX -->
-            <label class="menu-toggle" for="menu-toggle" aria-label="Open navigation menu">☰</label>
+            <!-- REVERTED BACK TO A STANDARD BUTTON TO PROPERLY INTERCEPT TOUCH EVENTS -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">☰</button>
         </div>
     </header>
 
@@ -169,5 +166,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- ADD THIS TINY SCRIPT AT THE VERY BOTTOM RIGHT BEFORE YOUR CLOSING BODY TAG -->
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
