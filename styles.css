@@ -73,6 +73,7 @@ header {
   justify-content: space-between;
   gap: 18px;
   min-height: 76px;
+  position: relative;
 }
 
 .brand {
@@ -445,7 +446,7 @@ input:focus, select:focus, textarea:focus {
 
 .status {
   margin-top: 12px;
-  color: var(--blue-dark);
+  color: var(--dark);
 }
 
 footer {
@@ -562,55 +563,57 @@ footer .brand-mark {
     display: none;
   }
   
-  /* Make menu trigger button functional and centered */
   .menu-toggle {
-    display: grid;
+    display: grid !important;
     place-items: center;
     cursor: pointer;
     user-select: none;
-  }
-  
-  .nav {
-    min-height: 70px;
-    position: relative; /* Acts as the anchor frame for absolute positioning */
+    -webkit-user-select: none;
   }
 
-  /* Completely restructure links layout for mobile list view */
   .nav-links {
-    display: none; 
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    position: absolute;
-    top: 100%; 
-    left: 0;
-    right: 0;
-    background: white;
-    padding: 10px 0;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    z-index: 99;
-  }
-
-  /* Format individual menu items for clear mobile click targets */
-  .nav-links a {
-    padding: 14px 20px;
-    font-size: 0.95rem;
-    border-bottom: 1px solid #f9f9f9;
-  }
-  
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-
-  /* Make sure checkbox remains hidden out of site */
-  .menu-checkbox {
-    display: none !important;
-  }
-
-  /* When invisible checkbox is toggled, display your mobile menu panel */
-  .menu-checkbox:checked ~ .nav-links {
     display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 76px; 
+    left: -15px; 
+    width: calc(100% + 30px);
+    background-color: #fff8f8;
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+    gap: 0;
+    z-index: 99;
+    
+    /* Sliding and animation mechanics */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 14px 25px;
+    font-size: .95rem;
+    border-bottom: 1px solid #eadfe140;
+  }
+
+  /* DROPDOWN TARGET CHANGED TO A STANDARD JAVASCRIPT ACTIVE CLASS LAYER */
+  .nav-links.open {
+    max-height: 480px !important; 
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .split, .contact-grid, .form-grid, .gallery, .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  .cta {
+    flex-direction: column;
+    text-align: center;
   }
 }
